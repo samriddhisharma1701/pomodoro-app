@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pomodoro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <div class="drag-bar"></div>
+
+    <div class="theme-bar">
+      <span class="theme-label">theme</span>
+      <button class="theme-btn active" data-theme="lavender" style="background:#d8b4fe"></button>
+      <button class="theme-btn" data-theme="pink" style="background:#f9a8d4"></button>
+      <button class="theme-btn" data-theme="green" style="background:#86efac"></button>
+      <button class="theme-btn" data-theme="yellow" style="background:#fde68a"></button>
+      <button class="theme-btn" data-theme="blue" style="background:#93c5fd"></button>
+    </div>
+
+    <div class="pattern-bar">
+      <span class="theme-label">pattern</span>
+      <button class="pattern-btn active" data-pattern="none">none</button>
+      <button class="pattern-btn" data-pattern="gingham">gingham</button>
+      <button class="pattern-btn" data-pattern="dots">dots</button>
+      <button class="pattern-btn" data-pattern="stripes">stripes</button>
+      <button class="pattern-btn" data-pattern="grid">grid</button>
+      <button class="pattern-btn" data-pattern="hearts">hearts</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="timer">timer</button>
+      <button class="tab" data-tab="game">break game</button>
+    </div>
+
+    <div class="screen" id="timer-screen">
+
+      <p class="quote" id="quote">you're doing better than you think 🌸</p>
+
+      <div class="timer-display" id="timer-display">25:00</div>
+
+      <div class="set-time">
+        <label>set time (minutes)</label>
+        <input type="number" id="custom-minutes" value="25" min="1" max="999" />
+        <button class="btn-set" id="btn-apply">apply</button>
+      </div>
+
+      <div class="controls">
+        <button class="btn-ctrl" id="btn-start">start</button>
+        <button class="btn-ctrl" id="btn-pause">pause</button>
+        <button class="btn-ctrl" id="btn-restart">restart</button>
+        <button class="btn-ctrl" id="btn-stop">stop</button>
+        <button class="btn-ctrl" id="btn-song">▶ song</button>
+      </div>
+
+      <audio id="alarm"></audio>
+
+    </div>
+
+    <div class="screen hidden" id="game-screen">
+      <p class="game-info">jump over the obstacles! press <strong>space</strong> or tap to jump</p>
+      <canvas id="game-canvas" width="700" height="200"></canvas>
+      <div class="game-controls">
+        <button class="btn-ctrl" id="btn-game-start">start game</button>
+        <button class="btn-ctrl" id="btn-game-reset">reset</button>
+      </div>
+      <p class="score-display">score: <span id="score">0</span></p>
+    </div>
+
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

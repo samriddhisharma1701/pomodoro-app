@@ -1,0 +1,256 @@
+@font-face {
+  font-family: 'Pixeboy';
+  src: url('assets/Pixeboy.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #fdf6ff;
+  --card: #f3e8ff;
+  --accent: #c084fc;
+  --accent2: #e9d5ff;
+  --text: #4a3f5c;
+  --muted: #9d8aad;
+  --btn: #d8b4fe;
+  --btn-hover: #c084fc;
+}
+
+body {
+  font-family: 'Pixeboy', sans-serif;
+  background: transparent;
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.app {
+  width: 780px;
+  background: var(--card);
+  border-radius: 24px;
+  padding: 0 32px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  -webkit-app-region: drag;
+  box-shadow: 0 8px 32px rgba(180, 130, 220, 0.25);
+}
+
+.drag-bar {
+  width: 100%;
+  height: 28px;
+  -webkit-app-region: drag;
+  cursor: grab;
+  border-radius: 12px 12px 0 0;
+}
+
+.theme-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-end;
+  -webkit-app-region: no-drag;
+}
+
+.theme-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.theme-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s;
+  -webkit-app-region: no-drag;
+}
+
+.theme-btn.active {
+  border: 2px solid var(--text);
+  transform: scale(1.2);
+}
+
+.tabs {
+  display: flex;
+  gap: 12px;
+  -webkit-app-region: no-drag;
+}
+
+.tab {
+  background: none;
+  border: 1.5px solid var(--accent);
+  color: var(--text);
+  padding: 8px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Pixeboy', sans-serif;
+  transition: all 0.2s;
+  -webkit-app-region: no-drag;
+}
+
+.tab.active {
+  background: var(--accent);
+  color: white;
+}
+
+.screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  -webkit-app-region: no-drag;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.quote {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  min-height: 24px;
+  transition: opacity 0.5s;
+}
+
+.timer-display {
+  font-size: 96px;
+  font-weight: bold;
+  color: var(--text);
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.set-time {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  -webkit-app-region: no-drag;
+}
+
+.set-time input {
+  width: 70px;
+  padding: 6px 10px;
+  border: 1.5px solid var(--accent2);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  font-family: 'Pixeboy', sans-serif;
+  text-align: center;
+  outline: none;
+  -webkit-app-region: no-drag;
+}
+
+.btn-set {
+  background: var(--accent2);
+  border: none;
+  padding: 6px 16px;
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'Pixeboy', sans-serif;
+  transition: background 0.2s;
+  -webkit-app-region: no-drag;
+}
+
+.btn-set:hover {
+  background: var(--btn-hover);
+  color: white;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  -webkit-app-region: no-drag;
+}
+
+.btn-ctrl {
+  background: var(--btn);
+  border: none;
+  padding: 10px 28px;
+  border-radius: 50px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: 'Pixeboy', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-app-region: no-drag;
+}
+
+.btn-ctrl:hover {
+  background: var(--btn-hover);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.game-info {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+#game-canvas {
+  border-radius: 16px;
+  background: var(--bg);
+  border: 1.5px solid var(--accent2);
+  -webkit-app-region: no-drag;
+}
+
+.game-controls {
+  display: flex;
+  gap: 12px;
+  -webkit-app-region: no-drag;
+}
+
+.score-display {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+[data-theme="pink"] { --bg: #fff0f6; --card: #fce7f3; --accent: #f472b6; --accent2: #fbcfe8; --text: #5c3a4a; --muted: #b07090; --btn: #f9a8d4; --btn-hover: #f472b6; }
+[data-theme="green"] { --bg: #f0fdf4; --card: #dcfce7; --accent: #4ade80; --accent2: #bbf7d0; --text: #1a3a2a; --muted: #5a8a6a; --btn: #86efac; --btn-hover: #4ade80; }
+[data-theme="yellow"] { --bg: #fffbeb; --card: #fef9c3; --accent: #facc15; --accent2: #fef08a; --text: #4a3a10; --muted: #9a8a30; --btn: #fde68a; --btn-hover: #facc15; }
+[data-theme="blue"] { --bg: #eff6ff; --card: #dbeafe; --accent: #60a5fa; --accent2: #bfdbfe; --text: #1e3a5f; --muted: #6080a0; --btn: #93c5fd; --btn-hover: #60a5fa; }.pattern-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+  -webkit-app-region: no-drag;
+  flex-wrap: wrap;
+}
+
+.pattern-btn {
+  background: var(--accent2);
+  border: 1.5px solid transparent;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: var(--text);
+  font-size: 11px;
+  font-family: 'Pixeboy', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-app-region: no-drag;
+}
+
+.pattern-btn.active {
+  border-color: var(--accent);
+  background: var(--btn);
+}
